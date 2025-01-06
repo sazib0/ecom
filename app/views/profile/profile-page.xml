@@ -1,0 +1,65 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <GridLayout rows="*, auto">
+        <!-- Content -->
+        <ScrollView row="0">
+            <StackLayout class="p-4">
+                <!-- Profile Info -->
+                <StackLayout class="bg-gray-100 rounded-lg p-4 mb-4">
+                    <Image src="{{ profileImage }}" class="h-20 w-20 rounded-full mb-4" horizontalAlignment="center"/>
+                    <Label text="{{ name }}" class="text-xl font-bold text-center"/>
+                    <Label text="{{ email }}" class="text-gray-500 text-center"/>
+                    <Label text="{{ phone }}" class="text-gray-500 text-center"/>
+                    <Label text="Edit" class="text-purple-500 text-right" tap="{{ onEditProfile }}"/>
+                </StackLayout>
+
+                <!-- Menu Items -->
+                <GridLayout columns="*, auto" class="bg-gray-100 rounded-lg p-4 mb-2" tap="{{ onAddressManagement }}">
+                    <Label col="0" text="Address" class="text-lg"/>
+                    <Label col="1" text="→" class="text-gray-400"/>
+                </GridLayout>
+
+                <GridLayout columns="*, auto" class="bg-gray-100 rounded-lg p-4 mb-2" tap="{{ onWishlist }}">
+                    <Label col="0" text="Wishlist" class="text-lg"/>
+                    <Label col="1" text="→" class="text-gray-400"/>
+                </GridLayout>
+
+                <GridLayout columns="*, auto" class="bg-gray-100 rounded-lg p-4 mb-2" tap="{{ onPaymentMethods }}">
+                    <Label col="0" text="Payment" class="text-lg"/>
+                    <Label col="1" text="→" class="text-gray-400"/>
+                </GridLayout>
+
+                <GridLayout columns="*, auto" class="bg-gray-100 rounded-lg p-4 mb-2" tap="{{ onHelp }}">
+                    <Label col="0" text="Help" class="text-lg"/>
+                    <Label col="1" text="→" class="text-gray-400"/>
+                </GridLayout>
+
+                <GridLayout columns="*, auto" class="bg-gray-100 rounded-lg p-4 mb-4" tap="{{ onSupport }}">
+                    <Label col="0" text="Support" class="text-lg"/>
+                    <Label col="1" text="→" class="text-gray-400"/>
+                </GridLayout>
+
+                <Button text="Sign Out" tap="{{ onSignOut }}" class="text-red-500 font-bold p-4"/>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation -->
+        <GridLayout row="1" columns="*, *, *, *" class="p-4 bg-white border-t border-gray-200">
+            <StackLayout col="0" class="text-center" tap="{{ onNavHome }}">
+                <Label text="🏠" class="text-xl text-gray-400"/>
+                <Label text="Home" class="text-xs text-gray-400"/>
+            </StackLayout>
+            <StackLayout col="1" class="text-center" tap="{{ onNavNotifications }}">
+                <Label text="🔔" class="text-xl text-gray-400"/>
+                <Label text="Notifications" class="text-xs text-gray-400"/>
+            </StackLayout>
+            <StackLayout col="2" class="text-center" tap="{{ onNavOrders }}">
+                <Label text="📄" class="text-xl text-gray-400"/>
+                <Label text="Orders" class="text-xs text-gray-400"/>
+            </StackLayout>
+            <StackLayout col="3" class="text-center" tap="{{ onNavAccount }}">
+                <Label text="👤" class="text-xl text-purple-500"/>
+                <Label text="Account" class="text-xs text-purple-500"/>
+            </StackLayout>
+        </GridLayout>
+    </GridLayout>
+</Page>

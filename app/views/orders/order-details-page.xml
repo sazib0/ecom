@@ -1,0 +1,49 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <GridLayout rows="auto, *">
+        <!-- Header -->
+        <GridLayout row="0" columns="auto, *" class="p-4">
+            <Label col="0" text="←" class="text-2xl" tap="{{ goBack }}"/>
+            <Label col="1" text="{{ 'Order #' + order.orderNumber }}" class="text-xl font-bold text-center"/>
+        </GridLayout>
+
+        <!-- Content -->
+        <ScrollView row="1">
+            <StackLayout class="p-4">
+                <!-- Order Status Timeline -->
+                <StackLayout class="mb-6">
+                    <GridLayout columns="auto, *, auto" class="mb-4">
+                        <Label col="0" text="✓" class="text-purple-500"/>
+                        <Label col="1" text="Order Placed" class="ml-4"/>
+                        <Label col="2" text="28 May" class="text-gray-500"/>
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *, auto" class="mb-4">
+                        <Label col="0" text="✓" class="text-purple-500"/>
+                        <Label col="1" text="Order Confirmed" class="ml-4"/>
+                        <Label col="2" text="28 May" class="text-gray-500"/>
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *, auto" class="mb-4">
+                        <Label col="0" text="✓" class="text-purple-500"/>
+                        <Label col="1" text="Shipped" class="ml-4"/>
+                        <Label col="2" text="28 May" class="text-gray-500"/>
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *, auto" class="mb-4">
+                        <Label col="0" text="○" class="text-gray-300"/>
+                        <Label col="1" text="Delivered" class="ml-4 text-gray-300"/>
+                        <Label col="2" text="28 May" class="text-gray-300"/>
+                    </GridLayout>
+                </StackLayout>
+ 
+
+                <!-- Shipping Details -->
+                <Label text="Shipping details" class="text-xl font-bold mb-4"/>
+                <StackLayout class="bg-gray-100 p-4 rounded-lg">
+                    <Label text="2715 Ash Dr. San Jose, South Dakota 83475" textWrap="true" class="mb-2"/>
+                    <Label text="121-224-7890"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+</Page>

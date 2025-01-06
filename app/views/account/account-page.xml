@@ -1,0 +1,54 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ScrollView>
+        <StackLayout class="p-4">
+            <!-- Sign In Header -->
+            <Label text="Sign in" class="text-3xl font-bold mb-8"/>
+
+            <!-- Login Form -->
+            <TextField hint="Email Address" text="{{ email }}" class="input mb-4"/>
+            <TextField hint="Password" text="{{ password }}" secure="true" class="input mb-4"/>
+            
+            <!-- Continue Button -->
+            <Button text="Continue" tap="{{ onContinue }}" class="btn-primary mb-4"/>
+
+            <!-- Account Options -->
+            <GridLayout columns="*, auto, *" class="mb-4">
+                <Label col="0" text="Don't have an Account?" class="text-gray-500"/>
+                <Label col="1" text=" Create One" class="text-primary font-bold" tap="{{ onCreateAccount }}"/>
+            </GridLayout>
+            <Label text="Forgot Password? Reset" class="text-center mb-8" tap="{{ onResetPassword }}"/>
+
+            <!-- Social Login -->
+            <Button class="bg-gray-100 p-4 rounded-full mb-4" tap="{{ onAppleLogin }}">
+                <FormattedString>
+                    <Span text="🍎 " />
+                    <Span text="Continue With Apple"/>
+                </FormattedString>
+            </Button>
+
+            <Button class="bg-gray-100 p-4 rounded-full mb-4" tap="{{ onGoogleLogin }}">
+                <FormattedString>
+                    <Span text="G " />
+                    <Span text="Continue With Google"/>
+                </FormattedString>
+            </Button>
+
+  
+
+            <!-- General Section -->
+            <Label text="General" class="text-2xl font-bold mb-4"/>
+            
+            <GridLayout columns="auto, *, auto" class="mb-4" tap="{{ onHelpCenter }}">
+                <Label col="0" text="❓" class="mr-2"/>
+                <Label col="1" text="Help Center" class="font-semibold"/>
+                <Label col="2" text="→" class="text-gray-400"/>
+            </GridLayout>
+
+            <GridLayout columns="auto, *, auto" class="mb-4" tap="{{ onTerms }}">
+                <Label col="0" text="📄" class="mr-2"/>
+                <Label col="1" text="Terms and Conditions" class="font-semibold"/>
+                <Label col="2" text="→" class="text-gray-400"/>
+            </GridLayout>
+        </StackLayout>
+    </ScrollView>
+</Page>

@@ -1,0 +1,29 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <GridLayout rows="auto, *, auto">
+        <!-- Header -->
+        <StackLayout row="0" class="p-4 bg-white border-b border-gray-200">
+            <Label text="Purchase History" class="text-xl font-bold"/>
+        </StackLayout>
+
+        <!-- History Items -->
+        <ScrollView row="1">
+            <StackLayout class="p-4">
+                <Repeater items="{{ historyItems }}">
+                    <Repeater.itemTemplate>
+                        <GridLayout columns="auto, *, auto" class="bg-white p-4 rounded-lg mb-4">
+                            <Image col="0" src="{{ image }}" width="60" height="60" class="rounded-lg"/>
+                            <StackLayout col="1" class="ml-3">
+                                <Label text="{{ name }}" class="font-bold"/>
+                                <Label text="{{ date }}" class="text-gray-500"/>
+ 
+                    </Repeater.itemTemplate>
+                </Repeater>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation -->
+        <GridLayout row="2" columns="*, *, *, *, *" class="p-4 bg-white border-t border-gray-200">
+            <!-- Same bottom navigation as home page -->
+        </GridLayout>
+    </GridLayout>
+</Page>

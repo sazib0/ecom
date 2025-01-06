@@ -1,0 +1,27 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <GridLayout rows="auto, *, auto">
+        <!-- Header -->
+        <StackLayout row="0" class="p-4 bg-white border-b border-gray-200">
+            <Label text="My Wishlist" class="text-xl font-bold"/>
+        </StackLayout>
+
+        <!-- Wishlist Items -->
+        <ScrollView row="1">
+            <StackLayout class="p-4">
+                <Repeater items="{{ wishlistItems }}">
+                    <Repeater.itemTemplate>
+                        <GridLayout columns="auto, *, auto" class="bg-white p-4 rounded-lg mb-4">
+                            <Image col="0" src="{{ image }}" width="60" height="60" class="rounded-lg"/>
+                            <StackLayout col="1" class="ml-3">
+                                <Label text="{{ name }}" class="font-bold"/>
+                                <Label text="{{ '$' + price }}" class="text-primary"/>
+                            </StackLayout>
+                            <Button col="2" text="Add to Cart" class="btn-primary" tap="{{ $parent.onAddToCart }}"/>
+                        </GridLayout>
+                    </Repeater.itemTemplate>
+                </Repeater>
+            </StackLayout>
+        </ScrollView>
+ 
+    </GridLayout>
+</Page>

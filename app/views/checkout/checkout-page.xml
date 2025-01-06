@@ -1,0 +1,45 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <GridLayout rows="auto, *, auto">
+        <!-- Header -->
+        <GridLayout row="0" columns="auto, *" class="p-4 bg-white border-b border-gray-200">
+            <Label col="0" text="←" class="text-2xl" tap="{{ goBack }}"/>
+            <Label col="1" text="Checkout" class="text-xl font-bold text-center"/>
+        </GridLayout>
+
+        <!-- Checkout Form -->
+        <ScrollView row="1">
+            <StackLayout class="p-4">
+                <!-- Delivery Address -->
+                <Label text="Delivery Address" class="text-lg font-bold mb-2"/>
+                <TextField hint="Street Address" text="{{ address.street }}" class="input mb-2"/>
+                <TextField hint="City" text="{{ address.city }}" class="input mb-2"/>
+                <TextField hint="Postal Code" text="{{ address.postalCode }}" class="input mb-4"/>
+ 
+
+                <!-- Order Summary -->
+                <Label text="Order Summary" class="text-lg font-bold mb-2"/>
+                <Repeater items="{{ cart.items }}">
+                    <Repeater.itemTemplate>
+                        <GridLayout columns="*, auto" class="mb-2">
+                            <Label col="0" text="{{ name + ' x' + quantity }}"/>
+                            <Label col="1" text="{{ '$' + (price * quantity) }}"/>
+                        </GridLayout>
+                    </Repeater.itemTemplate>
+                </Repeater>
+                <StackLayout class="border-t border-gray-200 pt-2 mt-2">
+                    <GridLayout columns="*, auto">
+                        <Label col="0" text="Delivery Fee" class="text-gray-500"/>
+                        <Label col="1" text="$5.00"/>
+                    </GridLayout>
+                    <GridLayout columns="*, auto" class="mt-2">
+                        <Label col="0" text="Total" class="font-bold"/>
+                        <Label col="1" text="{{ '$' + (cart.total + 5) }}" class="font-bold"/>
+                    </GridLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Place Order Button -->
+        <Button row="2" text="Place Order" tap="{{ placeOrder }}" class="btn-primary m-4"/>
+    </GridLayout>
+</Page>

@@ -1,0 +1,24 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" shownModally="true">
+    <GridLayout rows="auto, *, auto" class="bg-white rounded-t-3xl">
+        <!-- Header -->
+        <StackLayout row="0" class="p-4 border-b border-gray-200">
+            <Label text="Size" class="text-xl font-bold text-center"/>
+        </StackLayout>
+
+        <!-- Sizes List -->
+        <ScrollView row="1">
+            <StackLayout class="p-4">
+                <Repeater items="{{ sizes }}">
+                    <Repeater.itemTemplate>
+                        <GridLayout columns="auto, *" class="p-4 border-b border-gray-200">
+                            <Label col="0" text="{{ size }}" class="text-lg font-bold"/>
+                            <Label col="1" text="{{ name }}" class="text-lg ml-8"/>
+                        </GridLayout>
+                    </Repeater.itemTemplate>
+                </Repeater>
+            </StackLayout>
+        </ScrollView>
+
+         
+    </GridLayout>
+</Page>

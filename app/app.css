@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input {
+    padding: 12;
+    border-width: 1;
+    border-color: #e5e7eb;
+    border-radius: 8;
+    margin: 4 0;
+}
+
+.btn-primary {
+    background-color: #F4A01B;
+    color: white;
+    padding: 12;
+    border-radius: 8;
+    font-weight: bold;
+}
+
+.text-primary {
+    color: #F4A01B;
+}
+
+.bg-primary {
+    background-color: #F4A01B;
+}

@@ -1,0 +1,5 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" backgroundColor="#F4A01B">
+    <GridLayout>
+        <Label text="Clot" class="text-white text-6xl font-bold text-center"/>
+    </GridLayout>
+</Page>

@@ -1,0 +1,70 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <GridLayout rows="auto, *, auto">
+        <!-- Header -->
+        <StackLayout row="0" class="p-4">
+            <!-- Profile and Cart -->
+            <GridLayout columns="auto, *, auto, auto" class="mb-4">
+                <Image col="0" src="{{ userProfile }}" class="w-10 h-10 rounded-full"/>
+                <SearchBar col="1" hint="Search" text="{{ searchQuery }}" class="mx-2"/>
+                <Label col="2" text="🛒" class="text-2xl mx-4" tap="{{ onCartTap }}"/>
+                <Label col="3" text="{{ cartCount }}" class="bg-purple-500 text-white text-xs rounded-full px-1"/>
+            </GridLayout>
+
+            <!-- Filters -->
+            <GridLayout columns="auto, auto, auto, auto" class="mb-4">
+                <Button col="0" text="Deals 2" tap="{{ showDealsModal }}" class="bg-purple-100 rounded-full px-4 py-2 mr-2"/>
+                <Button col="1" text="Sort by" tap="{{ showSortModal }}" class="bg-gray-100 rounded-full px-4 py-2 mx-2"/>
+                <Button col="2" text="Categories" tap="{{ showCategoriesModal }}" class="bg-gray-100 rounded-full px-4 py-2 ml-2"/>
+            </GridLayout>
+        </StackLayout>
+
+        <!-- Main Content -->
+        <ScrollView row="1">
+            <StackLayout class="p-4">
+                <!-- Categories -->
+                <GridLayout columns="*, auto" class="mb-4">
+                    <Label col="0" text="{{ selectedCategory }}" class="text-xl font-bold"/>
+                    <Label col="1" text="See All" class="text-gray-500" tap="{{ onSeeAllTap }}"/>
+                </GridLayout>
+
+                <!-- Products Grid -->
+                <GridLayout columns="*, *" rows="auto, auto">
+                    <Repeater items="{{ filteredProducts }}">
+                        <Repeater.itemTemplate>
+                            <GridLayout class="m-1" tap="{{ $parent.onProductTap }}">
+                                <StackLayout>
+                                    <GridLayout>
+                                        <Image src="{{ image }}" stretch="aspectFill" height="200" class="rounded-lg"/>
+                                        <Label text="❤️" class="text-2xl p-2" horizontalAlignment="right" verticalAlignment="top" tap="{{ $parent.onWishlistTap }}"/>
+                                    </GridLayout>
+                                    <Label text="{{ name }}" class="font-semibold mt-2" textWrap="true"/>
+                                    <Label text="{{ '$' + price }}" class="font-bold"/>
+                                 </StackLayout>
+                            </GridLayout>
+                        </Repeater.itemTemplate>
+                    </Repeater>
+                </GridLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation -->
+        <GridLayout row="2" columns="*, *, *, *" class="p-4 bg-white border-t border-gray-200">
+            <StackLayout col="0" class="text-center" tap="{{ onNavHome }}">
+                <Label text="🏠" class="text-xl text-purple-500"/>
+                <Label text="Home" class="text-xs text-purple-500"/>
+            </StackLayout>
+            <StackLayout col="1" class="text-center" tap="{{ onNavNotifications }}">
+                <Label text="🔔" class="text-xl text-gray-400"/>
+                <Label text="Notifications" class="text-xs text-gray-400"/>
+            </StackLayout>
+            <StackLayout col="2" class="text-center" tap="{{ onNavOrders }}">
+                <Label text="📄" class="text-xl text-gray-400"/>
+                <Label text="Orders" class="text-xs text-gray-400"/>
+            </StackLayout>
+            <StackLayout col="3" class="text-center" tap="{{ onNavAccount }}">
+                <Label text="👤" class="text-xl text-gray-400"/>
+                <Label text="Account" class="text-xs text-gray-400"/>
+            </StackLayout>
+        </GridLayout>
+    </GridLayout>
+</Page>
